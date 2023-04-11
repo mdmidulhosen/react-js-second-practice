@@ -15,7 +15,7 @@ export default class State extends Component {
     }
     minus = () => {
         this.setState({
-            count : this.state.count - 2
+            count : this.state.count - 1
         })
     }
     
@@ -25,7 +25,7 @@ export default class State extends Component {
       <div>
         <h1>State : {count}</h1>
         <button onClick={this.plus}>+</button>
-        <button onClick={this.minus}>-</button>
+        <button onClick={this.minus} disabled={count === 0 ? true : false}>-</button>
       </div>
     )
   }

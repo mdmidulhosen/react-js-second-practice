@@ -1,10 +1,10 @@
 import React from 'react';
-import State from './component/State';
+import SignUp from './component/SignUp';
 
 function App() {
   return (
     <div>
-      <State/>
+      <SignUp />
     </div>
   )
 }
