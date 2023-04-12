@@ -1,10 +1,10 @@
 import React from 'react';
-import SignUp from './component/SignUp';
+import Api from './component/Api';
 
 function App() {
   return (
     <div>
-      <SignUp />
+      <Api />
     </div>
   )
 }

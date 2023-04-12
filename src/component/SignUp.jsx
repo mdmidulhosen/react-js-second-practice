@@ -1,42 +1,30 @@
-import React, { useState } from 'react';
+import { Formik, useFormik } from 'formik';
 
 function SignUp() {
 
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [Password, setPassword] = useState("");
-
-    const handleChange = (e) => {
-        setName(e.target.value)
-    }
-
-    const handleEmailChange = (e) => {
-        setEmail(e.target.value)
-    }
-
-    const handlePasswordChange = (e) => {
-        setPassword(e.target.value)
-    }
-
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        const newUser = {
-            name,
-            email,
-            Password,
+    const formik = useFormik({
+        initialValues:{
+            name: '',
+            email: '',
+            password: '',
+        },
+        onSubmit: (values)=>{
+            console.log(values);
         }
-        console.log(newUser);
-    }
+    })
+    
+    
+
 
     return (
         <>
             <h1 style={{ textAlign: "center" }}>Form</h1>
 
-            <form style={{ textAlign: "center" }} onSubmit={handleSubmit}>
+            <form style={{ textAlign: "center" }} onSubmit={formik.handleSubmit}>
 
-                <input type="text" id='name' name='name' placeholder='Your Name' onChange={handleChange} />
-                <input type="email" id='name' name='name' placeholder='Your Email' onChange={handleEmailChange} />
-                <input type="password" id='name' name='name' placeholder='Your Password' onChange={handlePasswordChange} />
+                <input type="text" id='name' name='name' placeholder='Your Name' onChange={formik.handleChange} value={formik.values.name}/>
+                <input type="email" id='name' name='email' placeholder='Your Email' onChange={formik.handleChange} value={formik.values.email}/>
+                <input type="password" id='name' name='password' placeholder='Your Password' onChange={formik.handleChange} value={formik.values.password}/>
 
                 <button type='Submit' >Submit</button>
             </form>
